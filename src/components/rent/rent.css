@@ -1,0 +1,249 @@
+
+  .container-padding{
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  
+  .header {
+    padding-left: 30px;
+    padding-right: 30px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0%);
+    z-index: 99;
+    width: 100%;
+  }
+  
+  .header-row{
+    padding-top: 30px;
+    background-color: #fff;
+  }
+  
+  .header-text{
+    font-family: 'Montserrat', sans-serif;
+    font-weight:  600;
+    color: #ea8508;
+  }
+  
+  .header-sub{
+    height: 100px;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-sub-text{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+  }
+
+  .header-col{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+  }
+
+  .no-padding{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .no-margin{
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .cart-icon{
+    position: fixed;
+    font-size: 30px;
+    color: #fff;
+    bottom: 20px;
+    right: 30px;
+    background-color: #ea8508;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer
+  }
+  
+  .cart-icon-badge{
+    position: absolute;
+    top:5px;
+    right: -10px;
+    height: 25px;
+    width: 25px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    align-self: flex-end;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .custom-column{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .custom-card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 6px;
+    background-color: #fff;
+    transition: 0.3s;
+    width: 140px;
+    height: 220px;
+    margin-bottom: 40px;
+    cursor: pointer;
+  }
+  
+  .custom-card :hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    overflow: hidden;
+  }
+  
+  .custom-card-inner :hover{
+    box-shadow: none;
+    border: none;
+  }
+  
+  .card-image{
+    width: 140px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+  }
+  
+  .card-title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight:  600;
+    font-size: 12px;
+  }
+  
+  .card-title-holder{
+    height: 50px;
+    width: 140px;
+    padding: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .modal-title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight:  600;
+    color: #ea8508;
+  }
+
+  .modal-btn{
+    background-color: #ea8508 !important;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .modal-input{
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .notification-icon{
+    color: #ea8508; 
+  }
+  /* // Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) { 
+    .custom-card{
+      width: 140px;
+      height: 220px;
+    }
+  
+    .card-image{
+      width: 140px;
+      height: 170px;
+      object-fit: cover;
+    }
+  }
+  
+  /* // Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) { 
+    .custom-card{
+      width: 140px;
+      height: 220px;
+    }
+  
+    .card-image{
+      width: 140px;
+      height: 170px;
+      object-fit: cover;
+    }
+  }
+  
+  /* // Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) { 
+    .custom-card{
+      width: 180px;
+      height: 280px;
+    }
+  
+    .card-image{
+      width: 180px;
+      height: 220px;
+      object-fit: cover;
+    }
+  
+    .card-title{
+      font-family: 'Montserrat', sans-serif;
+      font-weight:  600;
+      font-size: 14px;
+    }
+  
+    .card-title-holder{
+      height: 60px;
+      width: 180px;
+      padding: 7px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+  
+  /* // Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) { 
+    .custom-card{
+      width: 200px;
+      height: 320px;
+    }
+  
+    .card-image{
+      width: 200px;
+      height: 250px;
+      object-fit: cover;
+    }
+  
+    .card-title{
+      font-family: 'Montserrat', sans-serif;
+      font-weight:  600;
+    }
+  
+    .card-title-holder{
+      height: 70px;
+      width: 200px;
+      padding: 10px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+
+
+  
+  
+  
