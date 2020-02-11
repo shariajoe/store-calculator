@@ -16,6 +16,7 @@ class BillCustomer  extends Component {
         super(props);
         this.data = {};
         this.state = {
+            modal: false,
             rentedBooks: [],
             totalPrice: 0,
             billabeDays: 0
@@ -26,7 +27,7 @@ class BillCustomer  extends Component {
         this.data = this.constructTableData();
     }
 
-    constructTableData(){
+    constructTableData = () =>{
         let data  = {};
         let orders = localStorage.getItem("orders");
         if(orders){
@@ -35,7 +36,7 @@ class BillCustomer  extends Component {
                 let bookNames = order.books.map((book)=>{
                     return book.title;
                 }).join(", ");
-
+                
                 let dateOrdered = this.getFormattedDate(order.date);
                 let billabeDays = this.getDaysRented(order.date);
                 let total = `$ ${this.getTotalBill(billabeDays, order.books)}`;
@@ -105,7 +106,7 @@ class BillCustomer  extends Component {
         return data;
     }
 
-    getFormattedDate(unixDate){
+    getFormattedDate = (unixDate) => {
         let date = new Date(unixDate);
         let year = date.getFullYear();
         let month = (1 + date.getMonth()).toString();
@@ -115,11 +116,11 @@ class BillCustomer  extends Component {
         return day + "-" + month + "-" + year;
     }
 
-    getOrdinalNum(n) {
+    getOrdinalNum = (n) => {
         return n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '');
     }
 
-    getDaysRented (dateStart) {
+    getDaysRented = (dateStart) => {
         let date_future = new Date();
         let date_now = new Date(dateStart);
         // get total seconds between the times
@@ -148,7 +149,7 @@ class BillCustomer  extends Component {
         return days
     }
 
-    getTotalBill(billabeDays, books){
+    getTotalBill = (billabeDays, books) => {
         const novelBookprice = 1.5;
         const fictionBookprice = 3;
 
@@ -204,7 +205,7 @@ class BillCustomer  extends Component {
     };
 
 
-    getTotalBillForPrint(billabeDays, books){
+    getTotalBillForPrint = (billabeDays, books) => {
         return new Promise((resolve, reject) => {
             const novelBookprice = 1.5;
             const fictionBookprice = 3;

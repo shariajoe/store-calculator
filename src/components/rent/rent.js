@@ -125,7 +125,7 @@ class Rent extends Component {
     this.sortBooks();
   }
 
-  sortBooks(){
+  sortBooks = () => {
     if(this.state.books.length){
         let novel = this.state.books.filter((book)=>{
             return book.category === "novel";
@@ -231,11 +231,6 @@ class Rent extends Component {
     });
   };
 
-  handleDelete = eventId => {
-    const events = this.state.events.filter(e => e.id !== eventId);
-    this.setState({ events });
-  };
-
   toggleModal = () => {
     this.setState({
       modal: !this.state.modal
@@ -261,7 +256,7 @@ class Rent extends Component {
                 iconClassName="notification-icon"
                 message="Sweet! Order submitted successfully "
                 show
-                text="A few seconds ago"
+                text="seconds ago"
                 title="Sharia's Bookstore"
             />
         )}
@@ -345,17 +340,24 @@ class Rent extends Component {
                 className="modal-input"
               />
             </form>
-            <h6 className="modal-book-title text-center">Selected Books</h6>
+            
             {
-                this.state.selectedBooks.map(book =>(
-                    <div className="modal-book-row">
-                        <img src={getImage(book.thumbnail)}  alt={book.title} className="modal-book-image"/>
-                        <div>
-                            <h6 className="modal-book-title">{book.title}</h6>
-                            <h6 className="book-category">{book.category}</h6>
-                        </div>
-                    </div>
-                ))
+                this.state.selectedBooks && this.state.selectedBooks.length?
+                <React.Fragment>
+                    <h6 className="modal-book-title text-center" style={{marginBottom: 20}}>Selected Books</h6>
+                    {
+                        this.state.selectedBooks.map(book =>(
+                            <div className="modal-book-row" key={book.id}>
+                                <img src={getImage(book.thumbnail)}  alt={book.title} className="modal-book-image"/>
+                                <div>
+                                    <h6 className="modal-book-title">{book.title}</h6>
+                                    <h6 className="book-category">{book.category}</h6>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </React.Fragment>
+                : null
             }
           </MDBModalBody>
           <MDBModalFooter className="justify-content-center">
