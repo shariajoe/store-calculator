@@ -122,20 +122,21 @@ class Rent extends Component {
   }
 
   componentDidMount(){
-    let url = "http://localhost:3001/books";
-    fetch(url).then(resp => {
-        return resp.json();
-    }).then(data => {
-        if(data){
-            this.setState({books: data}, ()=>{
-                this.sortBooks();
-            });
-        } else {
-            this.sortBooks();
-        }
-    }).catch((e)=>{
-        console.log(e)
-    });
+    // let url = "http://localhost:3001/books";
+    // fetch(url).then(resp => {
+    //     return resp.json();
+    // }).then(data => {
+    //     if(data){
+    //         this.setState({books: data}, ()=>{
+    //             this.sortBooks();
+    //         });
+    //     } else {
+    //         this.sortBooks();
+    //     }
+    // }).catch((e)=>{
+    //     console.log(e)
+    // });
+    this.sortBooks();
   }
 
   sortBooks(){
