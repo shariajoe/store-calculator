@@ -158,6 +158,12 @@
   .notification-icon{
     color: #ea8508; 
   }
+
+  .book-category{
+      font-size: 9px;
+      margin-bottom: 0;
+      color: #808080
+  }
   /* // Small devices (landscape phones, 576px and up) */
   @media (min-width: 576px) { 
     .custom-card{
@@ -213,6 +219,10 @@
       justify-content: flex-start;
       align-items: center;
     }
+
+    .book-category{
+        font-size: 12px;
+    }
   }
   
   /* // Extra large devices (large desktops, 1200px and up) */
@@ -240,6 +250,10 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
+    }
+
+    .book-category{
+        font-size: 12px;
     }
   }
 

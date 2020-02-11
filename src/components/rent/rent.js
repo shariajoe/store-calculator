@@ -232,11 +232,10 @@ class Rent extends Component {
             <MDBCol lg="12" className="header-col">
                 <h6 className="header-sub-text">Select book(s) to rent</h6>
             </MDBCol>
-            
-            
             {
                 this.state.books.map(book =>(
                 <Book key={book.id} id={book.id} image={book.thumbnail} title={book.title} selected={book.selected}
+                category={book.category}
                 onClick={() => {
                     this.selectBook(book.id, book.selected);
                 }}/>
@@ -314,9 +313,14 @@ class Book extends Component {
              />
             <div className="card-title-holder" 
             style={ this.props.selected ? { width: 'calc(100% - 2px)'} : {}}>
-              <h6 className="card-title">
-                {this.props.title}
-              </h6>
+                <div>
+                    <h6 className="card-title" style={{marginBottom: 0}}>
+                        {this.props.title}
+                    </h6>
+                    <h6 className="book-category">
+                        {this.props.category}
+                    </h6>
+                </div>
             </div>
           </div>
         </div>

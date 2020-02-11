@@ -1,9 +1,6 @@
 import React,{ Component } from 'react';
 import { MDBDataTable } from 'mdbreact';
 
-
-
-
 class BillCustomer  extends Component {
     constructor(props) {
         super(props);
@@ -130,8 +127,32 @@ class BillCustomer  extends Component {
     }
 
     getTotalBill(billabeDays, books){
-        let bookPrice = 1;
-        return billabeDays * bookPrice * books.length;
+        const novelBookprice = 1.5;
+        const fictionBookprice = 3;
+        const regularBookprice = 1.5;
+
+        let totalPrice = books.reduce((total, book)=>{
+            let price = 0;
+            switch(book.category){
+                case 'novel': 
+                    price = novelBookprice * billabeDays;
+                    break;
+
+                case 'fiction': 
+                    price = fictionBookprice * billabeDays;
+                    break;
+
+                case 'regular': 
+                    price = regularBookprice * billabeDays;
+                    break;
+
+                default:
+                    break;
+            }
+            return total + price;
+        }, 0);
+
+        return totalPrice;
     }
   
 
@@ -142,6 +163,7 @@ class BillCustomer  extends Component {
               bordered
               hover
               data={this.props.activeTab === "2"? this.constructTableData(): this.data}
+              style={{fontFamily: 'Montserrat'}}
             />
         );
     }
