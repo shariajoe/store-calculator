@@ -31,6 +31,13 @@ class App extends Component {
     }
   };
 
+  toggleBillCustomer = tab => {
+    this.setState({
+      activeItem: tab
+    });
+  };
+  
+
   render() {
     return (
       <React.Fragment>
@@ -67,7 +74,7 @@ class App extends Component {
 
               <MDBTabContent activeItem={this.state.activeItem} >
                 <MDBTabPane tabId="1" role="tabpanel">
-                  <Rent/>
+                  <Rent toggleBillCustomer = {this.toggleBillCustomer}/>
                 </MDBTabPane>
                 <MDBTabPane tabId="2" role="tabpanel" className="table-tab">
                   <BillCustomer activeTab={this.state.activeItem}/>

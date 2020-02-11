@@ -122,20 +122,6 @@ class Rent extends Component {
   }
 
   componentDidMount(){
-    // let url = "http://localhost:3001/books";
-    // fetch(url).then(resp => {
-    //     return resp.json();
-    // }).then(data => {
-    //     if(data){
-    //         this.setState({books: data}, ()=>{
-    //             this.sortBooks();
-    //         });
-    //     } else {
-    //         this.sortBooks();
-    //     }
-    // }).catch((e)=>{
-    //     console.log(e)
-    // });
     this.sortBooks();
   }
 
@@ -154,9 +140,9 @@ class Rent extends Component {
         });
 
         this.setState({
-        novelBooks: novel,
-        regularBooks: regular,
-        fictionBooks: fiction
+            novelBooks: novel,
+            regularBooks: regular,
+            fictionBooks: fiction
         });
     }
   }
@@ -230,6 +216,10 @@ class Rent extends Component {
     this.setState({ 
         books: unSelectedBooks,
         showNotification: true 
+    },()=>{
+        setTimeout(()=>{
+            this.props.toggleBillCustomer("2");
+        }, 2000);
     });
   };
 
@@ -265,10 +255,7 @@ class Rent extends Component {
                     right: "10px",
                     zIndex: 9999
                 }}
-                autohide={3000} // by default = ∞ ms
-                bodyClassName="p-5 font-weight-bold white-text"
-                className="stylish-color-dark"
-                closeClassName="blue-grey-text"
+                autohide={2000} // by default = ∞ ms
                 fade
                 icon="bell"
                 iconClassName="notification-icon"
@@ -276,7 +263,6 @@ class Rent extends Component {
                 show
                 text="A few seconds ago"
                 title="Sharia's Bookstore"
-                titleClassName="elegant-color-dark white-text"
             />
         )}
         <MDBRow>
@@ -359,7 +345,7 @@ class Rent extends Component {
                 className="modal-input"
               />
             </form>
-            <h6 className="modal-book-title font-weight-bold text-center">Selected Books</h6>
+            <h6 className="modal-book-title text-center">Selected Books</h6>
             {
                 this.state.selectedBooks.map(book =>(
                     <div className="modal-book-row">

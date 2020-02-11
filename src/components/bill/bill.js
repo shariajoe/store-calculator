@@ -49,52 +49,52 @@ class BillCustomer  extends Component {
                     total: total,
                     print: <MDBBtn size="sm"
                      className="print-btn"
-                     onClick={() => { this.toggleModal(billabeDays, total, order.books) }}>Print</MDBBtn>
+                     onClick={() => { this.toggleModal(billabeDays, total, order.books) }}>Print</MDBBtn>,
+                    id: order.id
                 }
             });
 
             data = {
                 columns: [
                 {
+                    label: 'Transaction ID',
+                    field: 'id',
+                    sort: 'desc',
+                    width: 0
+                },
+                {
                     label: 'ID Number',
                     field: 'idNumber',
-                    sort: 'asc',
                     width: 150
                 },
                 {
                     label: 'Name',
                     field: 'name',
-                    sort: 'asc',
                     width: 270
                 },
                 {
                     label: 'Books',
                     field: 'books',
-                    sort: 'asc',
                     width: 200
                 },
                 {
                     label: 'Rental date',
                     field: 'date',
-                    sort: 'asc',
                     width: 150
                 },
                 {
                     label: 'Days Billable',
                     field: 'billabeDays',
-                    sort: 'asc',
                     width: 150
                 },
                 {
                     label: 'Total due',
                     field: 'total',
-                    sort: 'asc',
                     width: 150
                 },
                 {
                     label: '',
                     field: 'print',
-                    sort: 'asc',
                     width: 150
                 }
                 ],
@@ -106,14 +106,13 @@ class BillCustomer  extends Component {
     }
 
     getFormattedDate(unixDate){
-        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         let date = new Date(unixDate);
         let year = date.getFullYear();
-        let month = date.getMonth();
-        let monthString = months[month];
+        let month = (1 + date.getMonth()).toString();
+        month = month.length > 1 ? month : "0" + month;
         let day = date.getDate().toString();
-        day = day.length > 1 ? day : '0' + day;
-        return monthString +' '+this.getOrdinalNum(day)+' ' + year;
+        day = day.length > 1 ? day : "0" + day;
+        return day + "-" + month + "-" + year;
     }
 
     getOrdinalNum(n) {
