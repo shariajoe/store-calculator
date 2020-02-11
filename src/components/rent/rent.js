@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './rent.css';
-import { 
-  MDBContainer, 
+import {
   MDBRow, 
   MDBCol,
   MDBIcon,
@@ -22,6 +21,10 @@ class Rent extends Component {
     this.state = {
       modal: false,
       showNotification: false,
+      selectedBooks: [],
+      novelBooks: [],
+      regularBooks: [],
+      fictionBooks: [],
       books: [
         {
           id: 1,
@@ -118,10 +121,57 @@ class Rent extends Component {
     };
   }
 
+  componentDidMount(){
+    let url = "http://localhost:3001/books";
+    fetch(url).then(resp => {
+        return resp.json();
+    }).then(data => {
+        if(data){
+            this.setState({books: data}, ()=>{
+                this.sortBooks();
+            });
+        } else {
+            this.sortBooks();
+        }
+    }).catch((e)=>{
+        console.log(e)
+    });
+  }
+
+  sortBooks(){
+    if(this.state.books.length){
+        let novel = this.state.books.filter((book)=>{
+            return book.category === "novel";
+        });
+
+        let fiction = this.state.books.filter((book)=>{
+            return book.category === "fiction";
+        });
+
+        let regular = this.state.books.filter((book)=>{
+            return book.category === "regular";
+        });
+
+        this.setState({
+        novelBooks: novel,
+        regularBooks: regular,
+        fictionBooks: fiction
+        });
+    }
+  }
+
   selectBook = (id, selected) => {
     selected = !selected;
     this.setState({
       books: this.state.books.map(book => (book.id === id ? {...book, selected} : book))
+    }, ()=>{
+        let selectedBooks = this.state.books.filter((book)=>{
+            return book.selected;
+        });
+
+        this.setState({selectedBooks},()=>{
+            this.sortBooks();
+        });
     });
   }
 
@@ -232,13 +282,40 @@ class Rent extends Component {
             <MDBCol lg="12" className="header-col">
                 <h6 className="header-sub-text">Select book(s) to rent</h6>
             </MDBCol>
+            <MDBCol lg="12" className="header-section-title">
+                <h6 className="card-title">Novels</h6>
+            </MDBCol>
             {
-                this.state.books.map(book =>(
+                this.state.novelBooks.map(book =>(
                 <Book key={book.id} id={book.id} image={book.thumbnail} title={book.title} selected={book.selected}
-                category={book.category}
-                onClick={() => {
-                    this.selectBook(book.id, book.selected);
-                }}/>
+                    category={book.category}
+                    onClick={() => {
+                        this.selectBook(book.id, book.selected);
+                    }}/>
+                ))
+            }
+            <MDBCol lg="12" className="header-section-title">
+                <h6 className="card-title">Fiction</h6>
+            </MDBCol>
+            {
+                this.state.fictionBooks.map(book =>(
+                <Book key={book.id} id={book.id} image={book.thumbnail} title={book.title} selected={book.selected}
+                    category={book.category}
+                    onClick={() => {
+                        this.selectBook(book.id, book.selected);
+                    }}/>
+                ))
+            }
+            <MDBCol lg="12" className="header-section-title">
+                <h6 className="card-title">Regular</h6>
+            </MDBCol>
+            {
+                this.state.regularBooks.map(book =>(
+                <Book key={book.id} id={book.id} image={book.thumbnail} title={book.title} selected={book.selected}
+                    category={book.category}
+                    onClick={() => {
+                        this.selectBook(book.id, book.selected);
+                    }}/>
                 ))
             }
         </MDBRow>
@@ -281,6 +358,18 @@ class Rent extends Component {
                 className="modal-input"
               />
             </form>
+            <h6 className="modal-book-title font-weight-bold text-center">Selected Books</h6>
+            {
+                this.state.selectedBooks.map(book =>(
+                    <div className="modal-book-row">
+                        <img src={getImage(book.thumbnail)}  alt={book.title} className="modal-book-image"/>
+                        <div>
+                            <h6 className="modal-book-title">{book.title}</h6>
+                            <h6 className="book-category">{book.category}</h6>
+                        </div>
+                    </div>
+                ))
+            }
           </MDBModalBody>
           <MDBModalFooter className="justify-content-center">
             <MDBBtn

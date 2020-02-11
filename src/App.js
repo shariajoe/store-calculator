@@ -4,15 +4,13 @@ import {
   MDBContainer, 
   MDBRow, 
   MDBCol,
-  MDBIcon,
-  MDBBadge,
   MDBTabPane, 
   MDBTabContent, 
   MDBNav, 
   MDBNavItem, 
   MDBNavLink
 } from "mdbreact";
-import getImage from './imgMap';
+
 import { BrowserRouter } from 'react-router-dom';
 import Rent from "./components/rent/rent";
 import BillCustomer from "./components/bill/bill";
@@ -80,30 +78,6 @@ class App extends Component {
         </MDBContainer>
       </React.Fragment>
     );
-  }
-}
-
-
-class Book extends Component {
-  render() {
-    const IMAGE = getImage(this.props.image);
-    return (
-      <MDBCol lg="3" md="4" sm="6" xs="6" size="12" className="custom-column">
-        <div className="custom-card" onClick={this.props.onClick} 
-        style={ this.props.selected ? { border:'4px solid #ea8508', boxShadow: "none", overflow: "hidden"} : {}}>
-          <div className="custom-card-inner">
-            <img src={IMAGE} className="card-image" alt={this.props.title}
-             />
-            <div className="card-title-holder" 
-            style={ this.props.selected ? { width: 'calc(100% - 2px)'} : {}}>
-              <h6 className="card-title">
-                {this.props.title}
-              </h6>
-            </div>
-          </div>
-        </div>
-      </MDBCol>
-    )
   }
 }
 

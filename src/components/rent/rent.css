@@ -45,6 +45,13 @@
     padding-left: 30px;
   }
 
+  .header-section-title{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+  }
+
   .no-padding{
     padding-left: 0;
     padding-right: 0;
@@ -155,15 +162,39 @@
     font-family: 'Montserrat', sans-serif;
   }
 
+  .modal-book-row{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin-left: 20px;
+  }
+
+  .modal-book-image{
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+  }
+
+  .modal-book-title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    margin-bottom: 0;
+  }
+
   .notification-icon{
     color: #ea8508; 
   }
 
   .book-category{
       font-size: 9px;
+      font-family: 'Montserrat', sans-serif;
       margin-bottom: 0;
       color: #808080
   }
+
   /* // Small devices (landscape phones, 576px and up) */
   @media (min-width: 576px) { 
     .custom-card{

@@ -1,0 +1,95 @@
+{
+    "books":[
+    {
+      "id": 1,
+      "title": "After Gandhi",
+      "thumbnail": "image1",
+      "category": "regular",
+      "selected": false
+    },
+    {
+      "id": 2,
+      "title": "Arctic Dreams",
+      "thumbnail": "image2",
+      "category": "novel",
+      "selected": false
+    },
+    {
+      "id": 3,
+      "title": "Golden Bulls",
+      "thumbnail": "image3",
+      "category": "fiction",
+      "selected": false
+    },
+    {
+      "id": 4,
+      "title": "Eat your U.S. History Homework",
+      "thumbnail": "image4",
+      "category": "novel",
+      "selected": false
+    },
+    {
+      "id": 5,
+      "title": "Home Now",
+      "thumbnail": "image5",
+      "category": "regular",
+      "selected": false
+    },
+    {
+      "id": 6,
+      "title": "The Ink Garden of Brother Theophane",
+      "thumbnail": "image6",
+      "category": "fiction",
+      "selected": false
+    },
+    {
+      "id": 7,
+      "title": "Little Pig joins the band",
+      "thumbnail": "image7",
+      "category": "fiction",
+      "selected": false
+    },
+    {
+      "id": 8,
+      "title": "Mountain of mittens",
+      "thumbnail": "image8",
+      "category": "fiction",
+      "selected": false
+    },
+    {
+      "id": 9,
+      "title": "Presidential Pets",
+      "thumbnail": "image9",
+      "category": "regular",
+      "selected": false
+    },
+    {
+      "id": 10,
+      "title": "Twinkle twinkle little star",
+      "thumbnail": "image10",
+      "category": "regular",
+      "selected": false
+    },
+    {
+      "id": 11,
+      "title": "Under the freedom tree",
+      "thumbnail": "image11",
+      "category": "regular",
+      "selected": false
+    },
+    {
+      "id": 12,
+      "title": "Unite or Die",
+      "thumbnail": "image12",
+      "category": "novel",
+      "selected": false
+    },
+    {
+      "id": 13,
+      "title": "White House Kids",
+      "thumbnail": "image13",
+      "category": "regular",
+      "selected": false
+    }
+  ]
+}
